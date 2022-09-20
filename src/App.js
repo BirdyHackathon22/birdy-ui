@@ -48,11 +48,32 @@ function Nav() {
         </span>
       </div>
       <div class="navbar-item">
-        <p>User XYZ</p>
+        <ul>
+          <li>User XYZ1</li>
+          <li>999 999</li>
+        </ul>
       </div>
     </div>
   </div>
 </nav>
+  );
+}
+
+function Table() {
+  return (
+    <table class="table is-fullwidth">
+      <tr>
+        <td rowspan="2">
+          Image...
+        </td>
+        <th>
+          Sparrow 78%
+        </th>
+      </tr>
+      <tr>
+        <td>Data</td>
+      </tr>
+    </table>
   );
 }
 
@@ -62,12 +83,14 @@ function App() {
     <Nav></Nav>
     <section class="section">
     <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <p class="subtitle">Welcome to Birdy!</p>
+        </div>
+        <div class="column">
+          <Table/>
+        </div>
+      </div>
     </div>
   </section>
   </div>
