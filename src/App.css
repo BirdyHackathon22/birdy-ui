@@ -2,19 +2,19 @@
   text-align: center;
 }
 
-.button {
-  margin-top: 16px;
-}
-
 nav {
   background-image: url('../public/Header_Bar.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100% 3.25rem;
+  background-size: 100% 52px;
+  height: 52px;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
 }
 
 .birdy-logo {
-  height: 3.25rem;
+  height: 52px;
   margin-inline-start: 5rem;
 }
 
@@ -54,4 +54,113 @@ nav {
 
 .user-profile-img {
   height: 3rem;
+}
+
+/** Main container */
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-nav {
+  display: flex;
+  position: fixed;
+  top: 52px;
+  height: calc(100vh - 52px);
+}
+
+.left-nav-content {
+  background-image: url('../public/Panel_Wood_Background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 350px 100%;
+  width: 350px;
+}
+
+.title {
+  text-align: center;
+  margin-inline: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #F9D632;
+}
+
+.birdy-img {
+  width: 200px;
+  margin-inline: 75px;
+}
+
+.subtitle {
+  margin-inline: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #F9D632;
+  margin-block: 0;
+}
+
+.desc {
+  margin-inline: 5px;
+  font-size: 14px;
+  color: lightgoldenrodyellow;
+  margin-block-start: 0;
+}
+
+.left-nav-btn-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.left-nav-btn {
+  width: 162px;
+  height: 60px;
+  border-width: 1px;
+  background-image: linear-gradient(to bottom, #814601, #774501, #6e4302, #654104, #5d3f06);
+}
+
+.left-nav-btn-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #F8AD11;
+  margin-block: 0;
+}
+
+.left-nav-btn-sub {
+  font-size: 12px;
+  color: #F8AD11;
+  margin-block-start: 5px;
+  margin-block-end: 0;
+}
+
+.nav-slider {
+  width: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: flex;
+}
+
+.left-nav-slide-img {
+  width: 200px;
+  height: calc(100vh - 52px);
+  right: 0;
+  top: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.left-nav-slide-arrow {
+  width: 18px;
+  margin-top: 6px;
+}
+
+.main-data {
+  position: relative;
+  margin-top: 52px;
+  width: 100%;
+}
+
+.main-bkgd {
+  height: calc(100vh - 52px);
+  z-index: -1;
+  position: fixed;
 }

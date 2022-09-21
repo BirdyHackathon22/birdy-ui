@@ -1,5 +1,4 @@
 import './App.css';
-import 'bulma/css/bulma.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { useEffect, useState } from 'react';
 import moment from 'moment'
@@ -10,7 +9,7 @@ function Nav() {
   <img src="birdy_logo.png" alt="Birdy logo" className="birdy-logo"></img>
   <div className="nav-right-container">
     <button className="nav-right-buttons">
-      <p>Explore</p>
+      Explore
       <img src="Header_Explore_icon.png" alt="explore" className="nav-right-btn-img"></img>
     </button>
     <button className="nav-right-buttons">
@@ -67,6 +66,33 @@ function Table(props) {
   );
 }
 
+function LeftNavContent() {
+  return(
+    <div className='left-nav-content'>
+      <p className="title">Birdy: A Smart Bird Feeder to Fight Climate Change</p>
+      <img src="IMG_2168.jpg" alt="your birdy" className='birdy-img' />
+      <p className='subtitle'>What is Birdy?</p>
+      <p className='desc'>Birdy is a wild bird feeder set up by members of the community, like you! As birds come by to feed, Birdy takes a photo, idenitifes/classifies the bird, and uploads the metadata to share with our virtual community. Not only will you be helping out your forest friends, you will also be able to log, view, and share these pictures with your friends and the Birdy community!</p>
+
+      <p className='subtitle'>What do we use this data for?</p>
+      <p className='desc'>The data collected by the community is used to create a Global Biodiversity Map that tracks bird species along their migration routes. This data is an invaluable tool to track the impact climate change, logging, forest fires and the like are having on biodiversity over time and inform the approaches we can take to address these issues.</p>
+
+      <p className='subtitle'>This sounds fun! How do I join in?</p>
+      <p className='desc'>The link below will teach you how to set up your own Birdy. You can also sign up to be part of the global Birdy community where you can contribute to improving our classification AI for more accurate data tracking, manage your collection, and interact with other Birdy users!</p>
+      <div className="left-nav-btn-container">
+        <button className="left-nav-btn">
+          <p className="left-nav-btn-title">Set Up Birdy</p>
+          <p className="left-nav-btn-sub">Step-by-Step Instructions</p>
+        </button>
+        <button className="left-nav-btn">
+          <p className="left-nav-btn-title">Create an Account</p>
+          <p className="left-nav-btn-sub">Join our Global Community</p>
+        </button>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -93,33 +119,34 @@ function App() {
   })
   });
 
+  const [isLeftNavOpen, toggleLeftNavOpened] = useState(true);
+  function toggleLeftNav() {
+    toggleLeftNavOpened(!isLeftNavOpen);
+  }
+
   return (
     <div>
-    <Nav></Nav>
-    <section className="section">
-    <div className="container">
-      <div className="columns">
-        <div className="column is-one-fifth">
-          <p className="subtitle">Welcome to Birdy!</p>
-          <img src={"https://github.com/francesco-sodano/birdy/raw/main/res/images/misc/birdy-device-promopicture1.jpg"} alt="your birdy" />
-          <div className="left-nav-btn-container">
-            <button className="button">
-              Set up your own Birdy!
-            </button>
-            <button className="button">
-              Contact Us
-            </button>
-          </div>
+      <Nav></Nav>
+      <div className="main-container">
+        <div className="left-nav">
+          {isLeftNavOpen &&
+            <LeftNavContent></LeftNavContent>
+          }
+          <button className="nav-slider" onClick={() => toggleLeftNav()}>
+            <img src="Panel_Wood_Divider.png" alt="left slider button" className='left-nav-slide-img'></img>
+            <img src="Panel_Close_Arrow.png" alt="left slider button arrow"
+              className='left-nav-slide-arrow'
+              style={{"transform": isLeftNavOpen ? "rotate(0)" : "rotate(180deg)"}}></img>
+          </button>
         </div>
-        <div className="column">
+        <div className="main-data" style={{"margin-left": isLeftNavOpen ? "370px" : "20px"}}>
+          <img src="Background_forest.jfif" alt="background" className='main-bkgd'></img>
           {loading && "Loading..."}
           {error && "Error! Please reload the page."}
           {!loading && !error && <Table data={data}/>}
         </div>
       </div>
     </div>
-  </section>
-  </div>
   );
 }
 
