@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bulma/css/bulma.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -7,55 +6,23 @@ import moment from 'moment'
 
 function Nav() {
   return (
-<nav className="navbar" role="navigation" aria-label="main navigation">
-  <div className="navbar-brand">
-    <a className="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-    </a>
-
-    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" className="navbar-menu">
-    <div className="navbar-start">
-
-      <a className="navbar-item">
-        <form>
-          <input type="text" className="input" placeholder="Search..."/>
-        </form>
-      </a>
-
-    </div>
-
-    <div className="navbar-end">
-      <div className="navbar-item">
-        <span className="icon is-large fa-2x">
-          <i className="fa-solid fa-earth-africa"></i>
-        </span>
-        <span className="icon is-large fa-2x">
-          <i className="fa-solid fa-house"></i>
-        </span>
-        <span className="icon is-large fa-2x">
-          <i className="fa-solid fa-heart"></i>
-        </span>
-        <span className="icon is-large">
-          <span className="fa-stack fa-lg">
-            <i className="fa-regular fa-user fa-stack-1x"></i>
-            <i className="fa-regular fa-circle fa-stack-2x"></i>
-          </span>
-        </span>
-      </div>
-      <div className="navbar-item">
-        <ul>
-          <li>User XYZ1</li>
-          <li>999 999</li>
-        </ul>
-      </div>
-    </div>
+<nav role="navigation" aria-label="main navigation">
+  <img src="birdy_logo.png" alt="Birdy logo" className="birdy-logo"></img>
+  <div className="nav-right-container">
+    <button className="nav-right-buttons">
+      <p>Explore</p>
+      <img src="Header_Explore_icon.png" alt="explore" className="nav-right-btn-img"></img>
+    </button>
+    <button className="nav-right-buttons">
+      My Birdy
+      <img src="Header_MyBirdy_icon.png" alt="explore" className="nav-right-btn-img"></img>
+    </button>
+    <button className="nav-right-buttons">
+      Notifications
+      <img src="Header_Notifications_icon.png" alt="explore" className="nav-right-btn-img"></img>
+      <img src="Notifications_2.png" alt="number of notifications" className="num-noti-img"></img>
+    </button>
+    <img src="Header_Profile.png" alt="user profile" className="user-profile-img"></img>
   </div>
 </nav>
   );
@@ -146,7 +113,7 @@ function App() {
         </div>
         <div className="column">
           {loading && "Loading..."}
-          {error && "Error! Please reload the page.s"}
+          {error && "Error! Please reload the page."}
           {!loading && !error && <Table data={data}/>}
         </div>
       </div>
