@@ -29,28 +29,37 @@ function Nav() {
 
 function Row(props) {
   return (
-    <>
-      <tr>
-        <td rowSpan="3">
-          <img src={props.imgSrc} alt={"bird"} width="350px"/>
-        </td>
-        <th>
-          {props.species} ({props.score})
-        </th>
-      </tr>
-      <tr>
-          <td>location: {props.loc.latitute}, {props.loc.longitude}</td>
-      </tr>
-      <tr>
-          <td>{moment(props.dateSpotted).format('M/D/YYYY, h:mm a')}</td>
-      </tr>
-    </>
+    <div className="card">
+      <img src={props.imgSrc} alt={"bird"} className='bird-img'/>
+      <div className='card-non-img'>
+        <div className='card-top'>
+          <div className='card-title'>
+            <span className='species'><b>{props.species}</b> ({props.score})</span>
+            {moment(props.dateSpotted).format('M/D/YYYY, h:mm a')}
+          </div>
+          <div className='classify'>
+            Am I classified correctly?
+            
+          </div>
+        </div>
+        <div className='card-middle'>
+          <div className='user-info'>
+            <div className='user-img'></div>
+            <div className='user-name-loc'>
+              <span className='user-name'>BirdWatcher</span>
+              {props.loc.latitute}, {props.loc.longitude}
+            </div>
+          </div>
+          <p className='comment'>What a beautiful bird I saw in my backyard today!</p>
+        </div>
+      </div>
+    </div>
   );
 }
 
-function Table(props) {
+function Cards(props) {
   return (
-    <table className="table is-fullwidth">
+    <div className="data">
       {props.data.map((bird) => {
         return (
           <Row
@@ -62,7 +71,7 @@ function Table(props) {
             dateSpotted={bird.dateSpotted}></Row>
         )
       })}
-    </table>
+    </div>
   );
 }
 
@@ -141,9 +150,10 @@ function App() {
         </div>
         <div className="main-data" style={{"margin-left": isLeftNavOpen ? "370px" : "20px"}}>
           <img src="Background_forest.jfif" alt="background" className='main-bkgd'></img>
+          <img src="Filter_Bar.png" alt="filter bar" className="filter-bar"></img>
           {loading && "Loading..."}
           {error && "Error! Please reload the page."}
-          {!loading && !error && <Table data={data}/>}
+          {!loading && !error && <Cards data={data}/>}
         </div>
       </div>
     </div>
