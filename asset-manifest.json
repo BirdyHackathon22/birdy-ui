@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/birdy-ui/static/css/main.5d17dff2.css",
+    "main.js": "/birdy-ui/static/js/main.561758e6.js",
+    "static/js/787.e20d416b.chunk.js": "/birdy-ui/static/js/787.e20d416b.chunk.js",
+    "static/media/Panel_Wood_Background.png": "/birdy-ui/static/media/Panel_Wood_Background.4f09aaedb80e70184eb3.png",
+    "static/media/fa-solid-900.ttf": "/birdy-ui/static/media/fa-solid-900.b48ad290d0335879a92b.ttf",
+    "static/media/Header_Bar.png": "/birdy-ui/static/media/Header_Bar.4367b54b5b09f48dc28a.png",
+    "static/media/fa-brands-400.ttf": "/birdy-ui/static/media/fa-brands-400.f9ee61fab3c11e2f3ed3.ttf",
+    "static/media/fa-solid-900.woff2": "/birdy-ui/static/media/fa-solid-900.66104b766c3d0462b3c5.woff2",
+    "static/media/fa-brands-400.woff2": "/birdy-ui/static/media/fa-brands-400.e1a247a5ef41e1975742.woff2",
+    "static/media/fa-regular-400.ttf": "/birdy-ui/static/media/fa-regular-400.abf801b7acb6705a15ad.ttf",
+    "static/media/fa-regular-400.woff2": "/birdy-ui/static/media/fa-regular-400.639d2000c1ece92eaec8.woff2",
+    "static/media/fa-v4compatibility.ttf": "/birdy-ui/static/media/fa-v4compatibility.f601162ae669f88823a3.ttf",
+    "static/media/fa-v4compatibility.woff2": "/birdy-ui/static/media/fa-v4compatibility.745989aab0d69cab7e70.woff2",
+    "index.html": "/birdy-ui/index.html",
+    "main.5d17dff2.css.map": "/birdy-ui/static/css/main.5d17dff2.css.map",
+    "main.561758e6.js.map": "/birdy-ui/static/js/main.561758e6.js.map",
+    "787.e20d416b.chunk.js.map": "/birdy-ui/static/js/787.e20d416b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5d17dff2.css",
+    "static/js/main.561758e6.js"
+  ]
+}
