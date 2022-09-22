@@ -27,7 +27,53 @@ function Nav() {
   );
 }
 
+
+function Thumbs(props) {
+  const [vote, setVote] = useState(null);
+
+  function submitVote() {
+    if (vote === null) {
+      return;
+    }
+
+    const requestOptions = {
+      method: 'PUT',
+      mode: "cors",
+      headers: {}
+    };
+    fetch(`https://birdyapi20220919135004.azurewebsites.net/Vote/${props.id}/${vote}`, requestOptions)
+      .then(response => response.json())
+      .then(data => console.log("sent!"));
+  }
+
+  return (
+    <div className='classify-buttons'>
+      {vote === true ?
+        <button className='card-button'>
+          <img src="Thumbs_Up_Filled.png" alt="thumbs up" className='card-button-img'></img>
+        </button>
+        : <button className='card-button' onClick={() => setVote(true)}>
+          <img src="Thumbs_Up.png" alt="thumbs up" className='card-button-img'></img>
+        </button>
+      }
+      { vote === false ?
+      <button className='card-button'>
+        <img src="Thumbs_Down_Filled.png" alt="thumbs down" className='card-button-img'></img>
+      </button>
+      : <button className='card-button' onClick={() => setVote(false)}>
+          <img src="Thumbs_Down.png" alt="thumbs down" className='card-button-img'></img>
+        </button>
+      }
+      <button className='card-button' onClick={() => submitVote()}>
+        <img src="Submit_Classification.png" alt="submit classification" className='card-button-img'></img>
+      </button>
+    </div>
+  )
+}
+
 function Row(props) {
+  const [like, setLike] = useState(false);
+
   return (
     <div className="card">
       <img src={props.imgSrc} alt={"bird"} className='bird-img'/>
@@ -39,7 +85,7 @@ function Row(props) {
           </div>
           <div className='classify'>
             Am I classified correctly?
-            
+            <Thumbs id={props.id}/>
           </div>
         </div>
         <div className='card-middle'>
@@ -51,6 +97,16 @@ function Row(props) {
             </div>
           </div>
           <p className='comment'>What a beautiful bird I saw in my backyard today!</p>
+        </div>
+        <div className='card-bottom'>
+          {like ?
+            <button className='card-button' onClick={() => setLike(false)}>
+              <img src="Like_Filled.png" alt="liked" className='card-button-img'></img>
+            </button>
+            : <button className='card-button' onClick={() => setLike(true)}>
+              <img src="Like.png" alt="like" className='card-button-img'></img>
+            </button>
+          }
         </div>
       </div>
     </div>
@@ -68,7 +124,8 @@ function Cards(props) {
             species={bird.species}
             score={bird.score + "%"}
             loc={bird.location}
-            dateSpotted={bird.dateSpotted}></Row>
+            dateSpotted={bird.dateSpotted}
+            id={bird.id}></Row>
         )
       })}
     </div>
