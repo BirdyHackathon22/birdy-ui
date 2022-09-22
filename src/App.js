@@ -10,15 +10,15 @@ function Nav() {
   <div className="nav-right-container">
     <button className="nav-right-buttons">
       Explore
-      <img src="Header_Explore_icon.png" alt="explore" className="nav-right-btn-img"></img>
+      <img src="Header_Explore_Icon.png" alt="Explore" className="nav-right-btn-img"></img>
     </button>
     <button className="nav-right-buttons">
       My Birdy
-      <img src="Header_MyBirdy_icon.png" alt="explore" className="nav-right-btn-img"></img>
+      <img src="Header_MyBirdy_Icon.png" alt="My Birdy" className="nav-right-btn-img"></img>
     </button>
     <button className="nav-right-buttons">
       Notifications
-      <img src="Header_Notifications_icon.png" alt="explore" className="nav-right-btn-img"></img>
+      <img src="Header_Notifications_Icon.png" alt="Notifications" className="nav-right-btn-img"></img>
       <img src="Notifications_2.png" alt="number of notifications" className="num-noti-img"></img>
     </button>
     <img src="Header_Profile.png" alt="user profile" className="user-profile-img"></img>
@@ -126,7 +126,7 @@ function App() {
   }).finally(() => {
     setLoading(false);
   })
-  });
+  }, []);
 
   const [isLeftNavOpen, toggleLeftNavOpened] = useState(true);
   function toggleLeftNav() {
@@ -149,7 +149,7 @@ function App() {
           </button>
         </div>
         <div className="main-data" style={{"margin-left": isLeftNavOpen ? "370px" : "20px"}}>
-          <img src="Background_forest.jfif" alt="background" className='main-bkgd'></img>
+          <img src="Background_Forest.jfif" alt="background" className='main-bkgd'></img>
           <img src="Filter_Bar.png" alt="filter bar" className="filter-bar"></img>
           {loading && "Loading..."}
           {error && "Error! Please reload the page."}
